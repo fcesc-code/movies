@@ -1,10 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { MovieComponent } from './components/movie/movie.component';
+import { MoviesComponent } from './components/movies/movies.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: MoviesComponent,
+  },
+  {
+    path: 'movie/:id',
+    component: MovieComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
