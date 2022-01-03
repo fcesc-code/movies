@@ -2,18 +2,17 @@
 
 ## Purpose
 
-The aim of this PAC1 is to create a small blog site, as part of a University
+The aim of this PAC5 is to create a small movie site, as part of a University
 [Web apps and sites development Master](https://estudis.uoc.edu/ca/masters-universitaris/desenvolupament-llocs-aplicacions-web/presentacio)
 by [Universitat Oberta de Catalunya](http://uoc.edu). \
-Subject: Advanced Frameworks. October 2021.
+Subject: Advanced Frameworks. January 2022.
 
 ## Project
 
 ### Repositories and public website
 
-A Github repository can be found at [blog-front](https://github.com/fcesc-code/blog-front.git).
-The backend counterpart can be found at [blog-back](https://github.com/fcesc-code/blog-back.git).
-The last release of the project can be accessed at [bitacoras](https://bitacoras.netlify.app).
+A Github repository can be found at [blog-front](https://github.com/fcesc-code/movies.git).
+The last release of the project can be accessed at [bitacoras](https://freemovies.netlify.app).
 
 ### Tech stack
 
@@ -55,32 +54,12 @@ The last release of the project can be accessed at [bitacoras](https://bitacoras
 
 Current deployment status (last released): [![Netlify Status](https://api.netlify.com/api/v1/badges/6fcadd22-c1b8-4300-824e-1ded244ba319/deploy-status)](https://app.netlify.com/sites/bitacoras/deploys).
 
-| Version | Date                 | Status       | Content         |
-| ------- | -------------------- | ------------ | --------------- |
-| 0.0.1   | 03 October 2021      | Pre-released | Initial version |
-| 0.0.2   | 24 October 2021      | Released | Stable version using promises async / await functionality. PAC1. |
-| 0.1.0   | 30 October 2021     | Released | Code refactor into reactive programming paradigm. PAC2 ex 1. With custom features. |
-| 0.2.1   | 30 October 2021     | Released | Code refactor into reactive programming paradigm. PAC2 ex 1. Without custom features. |
-| 0.2.2   | 07 November 2021     | Not released | This version has been discarded and will not be released. |
-| 0.2.3   | 07 November 2021     | Released | Code refactor into reactive programming paradigm. PAC2 ex 3. With custom features. |
+| Version | Date            | Status       | Content         |
+| ------- | --------------- | ------------ | --------------- |
+| 0.0.1   | 03 January 2022 | Pre-released | Initial version |
 
 Availability:
 :x: no longer deployed, files available for some time - ✔️ currently deployed and release available - :construction: is under development
-
-### Versions 0.2.x
-
-- v 0.2.1 ✔️ PAC2 Exercise 1 without custom features. Using Observables instead of Promises.
-- v 0.2.2 :x: PAC2 Exercise 3 without custom features. Using redux for app state. Discarded release candidate.
-- v 0.2.3 ✔️ PAC2 Exercise 3 with custom features such as post filters.
-
-### Versions 0.1.x
-
-- v 0.1.0 ✔️ Code refactor into reactive programming paradigm, using rxjs library. It includes some custom features such as post filters.
-
-### Versions 0.0.x
-
-- v 0.0.2 ✔️ Stable initial version
-- v 0.0.1 :x: Initial version
 
 ## Quality gate
 
@@ -130,14 +109,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 This software is currently developed :construction: with educational purposes and is open source. The code is published in this public repository.
 
-### Issues :fire:
+### :fire: Issues
 
-Do you want to suggest :bulb: a new feature? Open an [issue](https://github.com/fcesc-code/blog-front/issues).
+Do you want to suggest :bulb: a new feature? Open an [issue](https://github.com/fcesc-code/movies/issues).
 Please, keep it short, descriptive and concise :smiley:
 
 ### Security
 
-Check out the how to report a vulnerability in our supported versions in the [SECURITY](https://github.com/fcesc-code/blog-front/blob/main/SECURITY.md) :open_book:.
+Check out the how to report a vulnerability in our supported versions in the [SECURITY](https://github.com/fcesc-code/movies/blob/main/SECURITY.md) :open_book:.
 
 ## Credits
 
@@ -148,4 +127,4 @@ Wherever appropriate, credit is given to author as a comment in specific file.
 
 Francesc Brugarolas, [repo](https://github.com/fcesc-code/)
 
-Latest update: 10 November 2021
+Latest update: 3rd January 2022
