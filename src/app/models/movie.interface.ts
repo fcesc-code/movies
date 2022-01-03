@@ -19,8 +19,8 @@ export interface Movie {
   keywords: Keyword[];
 }
 
-interface Genre {
-  id: number;
+export interface Genre {
+  id?: number;
   genre: string;
 }
 
@@ -32,4 +32,17 @@ interface Keyword {
 export interface ShortMovie {
   imdb_id: string;
   title: string;
+  popularity?: number;
+  rating?: number;
+}
+
+export interface ShortMovieListResponse {
+  results: ShortMovie[];
+  count: number;
+  next: string | null;
+  previous: string | null;
+}
+
+export interface GenreListResponse {
+  results: Genre[];
 }

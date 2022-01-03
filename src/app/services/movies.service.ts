@@ -3,7 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { API_GENERAL_KEYS } from '../../../KEYS/API_SECRET_KEYS';
-import { Movie, ShortMovie } from '../models/movie.interface';
+import {
+  GenreListResponse,
+  Movie,
+  ShortMovieListResponse,
+} from '../models/movie.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,41 +15,67 @@ import { Movie, ShortMovie } from '../models/movie.interface';
 export class MoviesService {
   constructor(private http: HttpClient) {}
 
-  getMoviesByRating(): Observable<ShortMovie[]> {
+  getMoviesByRating(
+    itemsPerPage: number,
+    page: number = 1
+  ): Observable<ShortMovieListResponse> {
+    const requestedPage = page + 1;
     const options = {
-      params: new HttpParams().set('page-size', '25'),
+      params: new HttpParams()
+        .set('page_size', itemsPerPage)
+        .set('page', requestedPage),
     };
-    return this.http.get<ShortMovie[]>(
+    return this.http.get<ShortMovieListResponse>(
       `${API_GENERAL_KEYS.url}/movie/order/byRating/`,
       options
     );
   }
 
-  getMoviesByPopularity(): Observable<ShortMovie[]> {
+  getMoviesByPopularity(
+    itemsPerPage: number,
+    page: number
+  ): Observable<ShortMovieListResponse> {
+    const requestedPage = page + 1;
     const options = {
-      params: new HttpParams().set('page-size', '25'),
+      params: new HttpParams()
+        .set('page_size', itemsPerPage)
+        .set('page', requestedPage),
     };
-    return this.http.get<ShortMovie[]>(
+    return this.http.get<ShortMovieListResponse>(
       `${API_GENERAL_KEYS.url}/movie/order/byPopularity/`,
       options
     );
   }
 
-  getMoviesByYear(year: number): Observable<ShortMovie[]> {
+  getMoviesByYear(
+    itemsPerPage: number,
+    page: number,
+    year: number
+  ): Observable<ShortMovieListResponse> {
+    const requestedPage = page + 1;
     const options = {
-      params: new HttpParams().set('page-size', '25'),
+      params: new HttpParams()
+        .set('page_size', itemsPerPage)
+        .set('page', requestedPage),
     };
-    return this.http.get<ShortMovie[]>(
+    return this.http.get<ShortMovieListResponse>(
       `${API_GENERAL_KEYS.url}/movie/byYear/${year}/`,
       options
     );
   }
 
-  getMoviesByGenre(genre: number): Observable<ShortMovie[]> {
+  getMoviesByGenre(
+    itemsPerPage: number,
+    page: number,
+    genre: string
+  ): Observable<ShortMovieListResponse> {
+    const requestedPage = page + 1;
     const options = {
-      params: new HttpParams().set('page-size', '25'),
+      params: new HttpParams()
+        .set('page_size', itemsPerPage)
+        .set('page', requestedPage),
     };
-    return this.http.get<ShortMovie[]>(
+    return this.http.get<ShortMovieListResponse>(
       `${API_GENERAL_KEYS.url}/movie/byGen/${genre}/`,
       options
     );
@@ -53,5 +83,9 @@ export class MoviesService {
 
   getMovieById(id: string): Observable<Movie> {
     return this.http.get<Movie>(`${API_GENERAL_KEYS.url}/movie/id/${id}/`);
+  }
+
+  getGenres(): Observable<GenreListResponse> {
+    return this.http.get<GenreListResponse>(`${API_GENERAL_KEYS.url}/genres/`);
   }
 }
