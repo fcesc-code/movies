@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 /* Components */
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
@@ -30,6 +31,7 @@ import { httpInterceptorProviders } from './interceptors';
     MatSelectModule,
     MatIconModule,
     MatInputModule,
+    MatProgressSpinnerModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],

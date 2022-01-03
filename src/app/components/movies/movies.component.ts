@@ -177,7 +177,17 @@ export class MoviesComponent implements OnInit, OnDestroy, AfterViewInit {
 
   loadGenres(): void {
     this.moviesService.getGenres().subscribe((genres: GenreListResponse) => {
-      this.genresList = genres.results.map((genre: Genre) => genre.genre);
+      this.genresList = genres.results
+        .map((genre: Genre) => genre.genre)
+        .filter(
+          (genre: string) =>
+            genre !== 'Short' &&
+            genre !== 'Talk-Show' &&
+            genre !== 'Game-Show' &&
+            genre !== 'Reality-TV' &&
+            genre !== 'News' &&
+            genre !== 'Adult'
+        );
     });
   }
 }

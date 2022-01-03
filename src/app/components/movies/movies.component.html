@@ -1,5 +1,6 @@
 <section>
   <h1>Movies</h1>
+  <mat-spinner *ngIf="movies.length === 0"></mat-spinner>
   <header>
     <form *ngIf="selectorsForm" [formGroup]="selectorsForm">
       <mat-form-field appearance="fill">
@@ -31,7 +32,7 @@
       </mat-form-field>
     </form>
   </header>
-  <ul>
+  <ul [hidden]="movies.length === 0">
     <li *ngFor="let movie of movies">
       <a [routerLink]="['/movies', movie.imdb_id]"
         >{{ movie.title }}
@@ -40,7 +41,7 @@
       </a>
     </li>
   </ul>
-  <footer>
+  <footer [hidden]="movies.length === 0">
     <mat-paginator
       [length]="count"
       [pageSize]="itemsPerPage"
