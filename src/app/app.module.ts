@@ -17,9 +17,10 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { MovieComponent } from './components/movie/movie.component';
 /* Interceptors */
 import { httpInterceptorProviders } from './interceptors';
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
 
 @NgModule({
-  declarations: [AppComponent, MoviesComponent, MovieComponent],
+  declarations: [AppComponent, MoviesComponent, MovieComponent, VideoPlayerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,1 +1,24 @@
-<p>movie works!</p>
+<section clasS="movie width-container flex flex-col justify-start items-center">
+  <img class="movie__image" src="{{ movie.banner }}" />
+  <h1 clas="important:text-h1">{{ movie.title }}</h1>
+  <p class="leading-6 p-0 m-0">
+    <span>{{ movie.year }}</span>
+    <span class="px-4">|</span>
+    <span>{{ movie.movie_length }} min</span>
+    <span class="px-4">|</span>
+    <span>content: {{ movie.content_rating }}</span>
+  </p>
+  <p class="leading-6 p-0 m-0">
+    <span>rating: {{ movie.rating }}/10</span>
+    <span class="px-4">|</span>
+    <span>popularity: {{ movie.popularity }}</span>
+  </p>
+  <p>{{ movie.description }}</p>
+  <p>{{ movie.plot }}</p>
+  <h2>Trailer</h2>
+  <app-video-player
+    class="w-full"
+    *ngIf="movie.trailer"
+    [videoUrl]="movie.trailer"
+  ></app-video-player>
+</section>

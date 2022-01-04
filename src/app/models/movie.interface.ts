@@ -46,3 +46,7 @@ export interface ShortMovieListResponse {
 export interface GenreListResponse {
   results: Genre[];
 }
+
+export interface MovieResponse {
+  results: Movie;
+}

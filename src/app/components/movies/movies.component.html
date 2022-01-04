@@ -1,4 +1,4 @@
-<section>
+<section class="movies-list">
   <h1>Movies</h1>
   <mat-spinner *ngIf="movies.length === 0"></mat-spinner>
   <header>
@@ -34,15 +34,14 @@
   </header>
   <ul [hidden]="movies.length === 0">
     <li *ngFor="let movie of movies">
-      <a [routerLink]="['/movies', movie.imdb_id]"
-        >{{ movie.title }}
-        <span *ngIf="movie.popularity">{{ movie.popularity }}</span>
-        <span *ngIf="movie.rating">{{ movie.rating }}</span>
-      </a>
+      <span *ngIf="movie.popularity">{{ movie.popularity }} - </span>
+      <span *ngIf="movie.rating">{{ movie.rating }} - </span>
+      <a [routerLink]="['/movie', movie.imdb_id]">{{ movie.title }} </a>
     </li>
   </ul>
   <footer [hidden]="movies.length === 0">
     <mat-paginator
+      class="bg-dark"
       [length]="count"
       [pageSize]="itemsPerPage"
       [pageSizeOptions]="itemsPerPageOptions"
