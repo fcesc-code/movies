@@ -8,7 +8,7 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { API_GENERAL_KEYS } from '../../../KEYS/API_SECRET_KEYS';
+import { API_KEY, API_HOST, API_PROVIDER } from '../../../KEYS/API_SECRET_KEYS';
 
 @Injectable()
 export class GeneralAPIinterceptor implements HttpInterceptor {
@@ -16,9 +16,9 @@ export class GeneralAPIinterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const GENERAL_KEY: string = API_GENERAL_KEYS.key;
-    const GENERAL_HOST: string = API_GENERAL_KEYS.host;
-    const GENERAL_PROVIDER: string = API_GENERAL_KEYS.provider;
+    const GENERAL_KEY: string = API_KEY;
+    const GENERAL_HOST: string = API_HOST;
+    const GENERAL_PROVIDER: string = API_PROVIDER;
 
     const backendReq = req.clone({
       headers: req.headers
