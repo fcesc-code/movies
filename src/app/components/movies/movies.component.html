@@ -1,0 +1,56 @@
+<section>
+  <h1>Movies</h1>
+  <mat-spinner *ngIf="movies.length === 0"></mat-spinner>
+  <header>
+    <form *ngIf="selectorsForm" [formGroup]="selectorsForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Get movies by</mat-label>
+        <mat-select [formControl]="selectors">
+          <mat-option
+            *ngFor="let selector of selectorsList"
+            [value]="selector"
+            >{{ selector }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" *ngIf="currentSelector === 'Year'">
+        <mat-label>Year</mat-label>
+        <input
+          matInput
+          [formControl]="year"
+          type="number"
+          [value]="selectedYear"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" *ngIf="currentSelector === 'Genre'">
+        <mat-label>Genres</mat-label>
+        <mat-select [formControl]="genres">
+          <mat-option *ngFor="let genre of genresList" [value]="genre">{{
+            genre
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </header>
+  <ul [hidden]="movies.length === 0">
+    <li *ngFor="let movie of movies">
+      <a [routerLink]="['/movies', movie.imdb_id]"
+        >{{ movie.title }}
+        <span *ngIf="movie.popularity">{{ movie.popularity }}</span>
+        <span *ngIf="movie.rating">{{ movie.rating }}</span>
+      </a>
+    </li>
+  </ul>
+  <footer [hidden]="movies.length === 0">
+    <mat-paginator
+      [length]="count"
+      [pageSize]="itemsPerPage"
+      [pageSizeOptions]="itemsPerPageOptions"
+      [showFirstLastButtons]="true"
+      [pageIndex]="currentPage"
+      aria-label="Select page"
+    >
+      >
+    </mat-paginator>
+  </footer>
+</section>
