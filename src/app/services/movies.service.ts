@@ -4,8 +4,10 @@ import { Observable } from 'rxjs';
 
 import { API_GENERAL_KEYS } from '../../../KEYS/API_SECRET_KEYS';
 import {
+  CastResponse,
   GenreListResponse,
-  Movie,
+  KeywordResults,
+  MovieResponse,
   ShortMovieListResponse,
 } from '../models/movie.interface';
 
@@ -81,8 +83,22 @@ export class MoviesService {
     );
   }
 
-  getMovieById(id: string): Observable<Movie> {
-    return this.http.get<Movie>(`${API_GENERAL_KEYS.url}/movie/id/${id}/`);
+  getMovieById(id: string): Observable<MovieResponse> {
+    return this.http.get<MovieResponse>(
+      `${API_GENERAL_KEYS.url}/movie/id/${id}/`
+    );
+  }
+
+  getCastByMovieId(id: string): Observable<CastResponse> {
+    return this.http.get<CastResponse>(
+      `${API_GENERAL_KEYS.url}/movie/id/${id}/cast`
+    );
+  }
+
+  getKeywordsByMovieId(id: string): Observable<KeywordResults> {
+    return this.http.get<KeywordResults>(
+      `${API_GENERAL_KEYS.url}/movie/id/${id}/keywords`
+    );
   }
 
   getGenres(): Observable<GenreListResponse> {

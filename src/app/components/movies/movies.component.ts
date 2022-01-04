@@ -61,7 +61,7 @@ export class MoviesComponent implements OnInit, OnDestroy, AfterViewInit {
     this.genresList = [];
     this.count = 0;
     this.itemsPerPageOptions = [5, 10, 25, 50, 100];
-    this.itemsPerPage = this.itemsPerPageOptions[2];
+    this.itemsPerPage = this.itemsPerPageOptions[1];
     this.currentPage = 0;
     this.currentSelector = 'Popularity';
     this.selectedYear = 2010;

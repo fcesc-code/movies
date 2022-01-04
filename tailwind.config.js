@@ -84,6 +84,9 @@ module.exports = {
         "80%": "80%",
         card: "min(60vh,25rem)",
       },
+      maxWidth: {
+        movies: "min(90vw, 60rem)",
+      },
       height: {
         card: "min(calc(60vh + 5rem),30rem)",
       },

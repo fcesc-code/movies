@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Open+Sans&family=Architects+Daughter&display=swap')
 
-@import "tailwindcss/base"
-@import "tailwindcss/components"
-@import "tailwindcss/utilities"
+@import tailwindcss/base
+@import tailwindcss/components
+@import tailwindcss/utilities
 
 @layer base
   h1 
@@ -26,6 +26,8 @@
   a, span, cite
     font-size: inherit
     font-family: inherit
+  a
+    @apply no-underline hover:underline hover:text-txt_contrast hover:decoration-txt_contrast focus:underline focus:text-txt_contrast focus:decoration-txt_contrast
   blockquote
     @apply leading-9 italic
   li
@@ -49,3 +51,5 @@
     @apply w-container_s md:w-container_md 2xl:w-container_2xl huge:w-container_huge my-0 mx-auto bg-dark
   .footer__socialIcon
     @apply p-0 my-0 mx-icons
+  .movies-list
+    @apply max-w-movies flex flex-col justify-start items-center
