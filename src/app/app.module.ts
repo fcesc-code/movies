@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatExpansionModule } from '@angular/material/expansion';
 /* Components */
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
@@ -18,9 +19,16 @@ import { MovieComponent } from './components/movie/movie.component';
 /* Interceptors */
 import { httpInterceptorProviders } from './interceptors';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { CastComponent } from './components/cast/cast.component';
 
 @NgModule({
-  declarations: [AppComponent, MoviesComponent, MovieComponent, VideoPlayerComponent],
+  declarations: [
+    AppComponent,
+    MoviesComponent,
+    MovieComponent,
+    VideoPlayerComponent,
+    CastComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,6 +41,7 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
     MatIconModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatExpansionModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],

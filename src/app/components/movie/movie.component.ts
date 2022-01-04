@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie, MovieResponse } from 'src/app/models/movie.interface';
@@ -8,10 +8,11 @@ import { MoviesService } from 'src/app/services/movies.service';
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.sass'],
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent implements OnInit, OnDestroy {
   imageSubscription!: Subscription;
   movie: Movie;
   safeUrl!: any;
+  panelOpenState: boolean = false;
 
   constructor(
     private moviesService: MoviesService,
@@ -51,5 +52,9 @@ export class MovieComponent implements OnInit {
           this.movie = movie.results;
         });
     }
+  }
+
+  ngOnDestroy(): void {
+    this.imageSubscription.unsubscribe();
   }
 }

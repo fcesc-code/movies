@@ -33,7 +33,7 @@
     </form>
   </header>
   <ul [hidden]="movies.length === 0">
-    <li *ngFor="let movie of movies">
+    <li *ngFor="let movie of movies" class="leading-6">
       <span *ngIf="movie.popularity">{{ movie.popularity }} - </span>
       <span *ngIf="movie.rating">{{ movie.rating }} - </span>
       <a [routerLink]="['/movie', movie.imdb_id]">{{ movie.title }} </a>

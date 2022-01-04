@@ -29,6 +29,16 @@ interface Keyword {
   keyword: string;
 }
 
+interface Actor {
+  imdb_id: string;
+  name: string;
+}
+
+export interface Role {
+  role: string;
+  actor: Actor;
+}
+
 export interface ShortMovie {
   imdb_id: string;
   title: string;
@@ -49,4 +59,18 @@ export interface GenreListResponse {
 
 export interface MovieResponse {
   results: Movie;
+}
+
+export interface CastResponse {
+  results: {
+    roles: Role[];
+  };
+}
+
+interface Keyword {
+  keyword: string;
+}
+
+export interface KeywordResults {
+  results: Keyword[];
 }

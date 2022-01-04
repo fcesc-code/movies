@@ -8,6 +8,19 @@
     <span class="px-4">|</span>
     <span>content: {{ movie.content_rating }}</span>
   </p>
+  <mat-expansion-panel
+    *ngIf="movie.imdb_id"
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title> Cast </mat-panel-title>
+      <mat-panel-description>
+        {{ panelOpenState ? "cast" : "click to show cast" }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-cast [movieId]="movie.imdb_id"></app-cast>
+  </mat-expansion-panel>
   <p class="leading-6 p-0 m-0">
     <span>rating: {{ movie.rating }}/10</span>
     <span class="px-4">|</span>
