@@ -32,7 +32,9 @@
               "src/styles.sass"
             ],
             "scripts": [],
-            "extraWebpackConfig": "webpack.tailwindcss.js"
+            "extraWebpackConfig": "webpack.tailwindcss.js",
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {

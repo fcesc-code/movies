@@ -20,6 +20,8 @@ import { MovieComponent } from './components/movie/movie.component';
 import { httpInterceptorProviders } from './interceptors';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { CastComponent } from './components/cast/cast.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,12 @@ import { CastComponent } from './components/cast/cast.component';
     MatInputModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 10 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:10000',
+    }),
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
