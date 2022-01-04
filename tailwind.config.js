@@ -1,6 +1,5 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
-  prefix: "t",
   corePlugins: {
     preflight: false,
   },
