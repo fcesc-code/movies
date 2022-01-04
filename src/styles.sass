@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Open+Sans&family=Architects+Daughter&display=swap')
+
+@import "tailwindcss/base"
+@import "tailwindcss/components"
+@import "tailwindcss/utilities"
+
+@layer base
+  h1 
+    @apply px-0 py-6 text-center text-h1 text-txt_title
+  h2
+    @apply px-0 py-5 text-center font-fhand leading-14 font-normal text-h2
+  h3
+    @apply px-0 py-4 text-center text-h3
+  h4
+    @apply px-0 py-3 text-center text-h4
+  h5, h6
+    @apply px-0 py-2 text-center font-fsans text-h5
+  p, blockquote, ol, ul
+    @apply px-0 py-2 font-fsans text-general
+  small
+    @apply font-fsans text-sm
+  p
+    @apply px-0 py-6 leading-10
+    word-spacing: .04rem
+  a, span, cite
+    font-size: inherit
+    font-family: inherit
+  blockquote
+    @apply leading-9 italic
+  li
+    @apply px-0 py-1
+  p, h1, h2, h3, h4, h5, h6, blockquote, ul, ol, li, a, span
+    @apply text-txt_main text-general
+  ul, ol
+    @apply list-none
+  .smaller
+    @apply text-reduce
+  .larger
+    @apply text-increase
+  .txt--highlighted
+    @apply text-txt_highlighted
+  .txt--contrast
+    @apply text-txt_contrast
+
+
+@layer components
+  .width-container
+    @apply w-container_s md:w-container_md 2xl:w-container_2xl huge:w-container_huge my-0 mx-auto bg-dark
+  .footer__socialIcon
+    @apply p-0 my-0 mx-icons
