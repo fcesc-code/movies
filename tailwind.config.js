@@ -4,10 +4,6 @@ module.exports = {
     preflight: false,
   },
   mode: "jit",
-  purge: {
-    enabled: true,
-    content: ["./src/**/*.{html,ts}"],
-  },
   theme: {
     extend: {
       colors: {

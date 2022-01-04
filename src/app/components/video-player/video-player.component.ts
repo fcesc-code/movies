@@ -32,10 +32,10 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
     window.removeEventListener('resize', this.onResize);
   }
 
-  onResize = () => {
+  onResize(): void {
     const videoPlayer = document.getElementById('videoPlayer');
     if (videoPlayer) {
       videoPlayer.style.height = videoPlayer.clientWidth * 0.5625 + 'px';
     }
-  };
+  }
 }

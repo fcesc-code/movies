@@ -30,7 +30,11 @@
   "dataGroups": [
     {
       "name": "movies-api",
-      "urls": ["https://**/movie/**", "https://**/genres/"],
+      "urls": [
+        "https://**/movie/**",
+        "https://**/genres/",
+        "https://m.media-amazon.com/images/**"
+      ],
       "cacheConfig": {
         "maxSize": 100,
         "maxAge": "1h",
