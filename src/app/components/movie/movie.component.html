@@ -1,5 +1,10 @@
 <section clasS="movie width-container flex flex-col justify-start items-center">
-  <img class="movie__image" src="{{ movie.banner }}" />
+  <img
+    class="movie__image"
+    src="{{ movie.banner }}"
+    loading="lazy"
+    alt="Poster of the movie: {{ movie.title }}"
+  />
   <h1 clas="important:text-h1">{{ movie.title }}</h1>
   <p class="leading-6 p-0 m-0">
     <span>{{ movie.year }}</span>

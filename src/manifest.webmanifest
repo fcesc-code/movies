@@ -1,11 +1,16 @@
 {
-  "name": "movies",
+  "name": "Movies info",
   "short_name": "movies",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#090512",
+  "background_color": "#090512",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
+  "orientation": "any",
+  "dir": "ltr",
+  "lang": "en-US",
+  "cateogries": ["Entertainment", "Movies"],
+  "description": "Your favourite movies' information and trailers listed by year, rating, popularity, genre, cast...",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
