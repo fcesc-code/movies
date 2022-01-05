@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Open+Sans&family=Architects+Daughter&display=swap')
 
+@import ~animate.css/animate.min
+
 @import tailwindcss/base
 @import tailwindcss/components
 @import tailwindcss/utilities
@@ -44,7 +46,8 @@
     @apply text-txt_highlighted
   .txt--contrast
     @apply text-txt_contrast
-
+  .inherit-color
+    color: inherit
 
 @layer components
   .width-container

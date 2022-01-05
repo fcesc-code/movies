@@ -1,4 +1,4 @@
-<section class="movies-list">
+<section class="movies-list mx-auto">
   <h1>Movies</h1>
   <mat-spinner *ngIf="movies.length === 0"></mat-spinner>
   <header>
@@ -32,13 +32,26 @@
       </mat-form-field>
     </form>
   </header>
-  <ul [hidden]="movies.length === 0">
-    <li *ngFor="let movie of movies" class="leading-6">
-      <span *ngIf="movie.popularity">{{ movie.popularity }} - </span>
-      <span *ngIf="movie.rating">{{ movie.rating }} - </span>
-      <a [routerLink]="['/movie', movie.imdb_id]">{{ movie.title }} </a>
-    </li>
-  </ul>
+  <div [hidden]="movies.length === 0" class="w-[80%]">
+    <mat-card
+      *ngFor="let movie of movies"
+      class="leading-6 w-full animated bounce fadeIn bg-dark my-2 border-2 rounded-2 border-gray-400 hover:bg-txt_contrast important:drop-shadow-lg hover:text-txt_black focus:text-txt_black active:text-txt_black hover:decoration-txt_black focus:decoration-txt_black active:decoration-txt_black"
+    >
+      <span
+        *ngIf="movie.popularity"
+        class="text-gray-200 inline-block w-20 text-right"
+        >{{ movie.popularity }}
+      </span>
+      <span
+        *ngIf="movie.rating"
+        class="text-gray-200 inline-block w-12 text-right"
+        >{{ movie.rating }}
+      </span>
+      <a [routerLink]="['/movie', movie.imdb_id]" class="inherit-color px-3"
+        >{{ movie.title }}
+      </a>
+    </mat-card>
+  </div>
   <footer [hidden]="movies.length === 0">
     <mat-paginator
       class="bg-dark"

@@ -1,11 +1,24 @@
+a
 <section clasS="movie width-container flex flex-col justify-start items-center">
+  <header class="w-full flex flex-row justify-between items-center">
+    <h1 clas="important:text-h1">{{ movie.title }}</h1>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Movies home"
+      class="text-txt_title"
+      ><a
+        [routerLink]="['/movie']"
+        class="text-txt_title no-underline hover:cursor-pointer h-full"
+        >home</a
+      >
+    </mat-icon>
+  </header>
   <img
     class="movie__image"
     src="{{ movie.banner }}"
     loading="lazy"
     alt="Poster of the movie: {{ movie.title }}"
   />
-  <h1 clas="important:text-h1">{{ movie.title }}</h1>
   <p class="leading-6 p-0 m-0">
     <span>{{ movie.year }}</span>
     <span class="px-4">|</span>
