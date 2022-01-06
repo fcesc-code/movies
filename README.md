@@ -38,6 +38,7 @@ The last release of the project can be accessed at [bitacoras](https://freemovie
 ### Content
 
 - [Pexels](https://www.pexels.com/)
+  - video placeholder image: [source](https://www.pexels.com/photo/pexels-obregonia-d-toretto-918281/)
 
 ### Project Management
 
