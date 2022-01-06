@@ -1,4 +1,9 @@
 <ul>
-  <li *ngFor="let role of cast">{{ role.role }} - {{ role.actor.name }}</li>
+  <li
+    *ngFor="let role of cast"
+    attr.aria-label="{{ role.actor.name }} as {{ role.role }}"
+  >
+    {{ role.role }} - {{ role.actor.name }}
+  </li>
 </ul>
 >

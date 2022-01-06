@@ -1,10 +1,10 @@
-a
 <section clasS="movie width-container flex flex-col justify-start items-center">
   <header class="w-full flex flex-row justify-between items-center">
-    <h1 clas="important:text-h1">{{ movie.title }}</h1>
+    <h1 clas="" aria-role="heading">{{ movie.title }}</h1>
     <mat-icon
       aria-hidden="false"
       aria-label="Movies home"
+      title="Movies home"
       class="text-txt_title"
       ><a
         [routerLink]="['/movie']"
@@ -19,37 +19,74 @@ a
     loading="lazy"
     alt="Poster of the movie: {{ movie.title }}"
   />
-  <p class="leading-6 p-0 m-0">
-    <span>{{ movie.year }}</span>
-    <span class="px-4">|</span>
-    <span>{{ movie.movie_length }} min</span>
-    <span class="px-4">|</span>
-    <span>content: {{ movie.content_rating }}</span>
-  </p>
+  <div>
+    <p class="leading-6 p-0 m-0">
+      <span attr.aria-label="Released in {{ movie.year }}.">
+        <mat-icon title="movie released in" aria-hidden="true"
+          >calendar_today</mat-icon
+        >
+        {{ movie.year }}
+      </span>
+      <span class="px-4" aria-hidden="true">|</span>
+      <span
+        attr.aria-label="The film is {{ movie.movie_length }} minutes long."
+      >
+        <mat-icon title="movie length" aria-hidden="true">schedule</mat-icon>
+        {{ movie.movie_length }} min
+      </span>
+      <span class="px-4" aria-hidden="true">|</span>
+      <span
+        attr.aria-label="Content classification is {{
+          movie.content_rating === '' || movie.content_rating === '-'
+            ? 'not defined'
+            : movie.content_rating
+        }}."
+      >
+        <mat-icon title="content classification" aria-hidden="true"
+          >warning</mat-icon
+        >
+        {{ movie.content_rating }}
+      </span>
+      <span class="px-4" aria-hidden="true">|</span>
+      <span attr.aria-label="The rating is {{ movie.rating }} out of ten.">
+        <mat-icon title="rating" aria-hidden="true">star_border</mat-icon>
+        {{ movie.rating }}/10
+      </span>
+      <span class="px-4" aria-hidden="true">|</span>
+      <span attr.aria-label="The popularity index is {{ movie.popularity }}.">
+        <mat-icon title="popularity" aria-hidden="true">trending_up</mat-icon>
+        {{ movie.popularity }}
+      </span>
+    </p>
+  </div>
   <mat-expansion-panel
     *ngIf="movie.imdb_id"
     (opened)="panelOpenState = true"
     (closed)="panelOpenState = false"
+    aria-role="note"
   >
     <mat-expansion-panel-header>
-      <mat-panel-title> Cast </mat-panel-title>
+      <mat-panel-title aria-label="Cast of the movie"> Cast </mat-panel-title>
       <mat-panel-description>
         {{ panelOpenState ? "cast" : "click to show cast" }}
       </mat-panel-description>
     </mat-expansion-panel-header>
     <app-cast [movieId]="movie.imdb_id"></app-cast>
   </mat-expansion-panel>
-  <p class="leading-6 p-0 m-0">
-    <span>rating: {{ movie.rating }}/10</span>
-    <span class="px-4">|</span>
-    <span>popularity: {{ movie.popularity }}</span>
-  </p>
-  <p>{{ movie.description }}</p>
-  <p>{{ movie.plot }}</p>
-  <h2>Trailer</h2>
-  <app-video-player
-    class="w-full"
-    *ngIf="movie.trailer"
-    [videoUrl]="movie.trailer"
-  ></app-video-player>
+  <article>
+    <h2>Description:</h2>
+    <p>{{ movie.description }}</p>
+  </article>
+  <article *ngIf="movie.description !== movie.plot">
+    <h2>Plot:</h2>
+    <p>{{ movie.plot }}</p>
+  </article>
+  <article>
+    <h2>Trailer</h2>
+    <app-video-player
+      class="w-full"
+      *ngIf="movie.trailer"
+      [videoUrl]="movie.trailer"
+    ></app-video-player>
+  </article>
 </section>

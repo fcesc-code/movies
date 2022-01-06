@@ -1,5 +1,5 @@
 <section class="movies-list mx-auto">
-  <h1>Movies</h1>
+  <h1 aria-role="heading">Movies</h1>
   <mat-spinner *ngIf="movies.length === 0"></mat-spinner>
   <header>
     <form *ngIf="selectorsForm" [formGroup]="selectorsForm">
@@ -32,9 +32,10 @@
       </mat-form-field>
     </form>
   </header>
-  <div [hidden]="movies.length === 0" class="w-[80%]">
+  <div [hidden]="movies.length === 0" class="w-[80%]" aria-role="list">
     <mat-card
       *ngFor="let movie of movies"
+      aria-role="listitem"
       class="leading-6 w-full animated bounce fadeIn bg-dark my-2 border-2 rounded-2 border-gray-400 hover:bg-txt_contrast important:drop-shadow-lg hover:text-txt_black focus:text-txt_black active:text-txt_black hover:decoration-txt_black focus:decoration-txt_black active:decoration-txt_black"
     >
       <span
