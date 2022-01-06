@@ -65,7 +65,7 @@ testem.log
 #angular
 /.angular/cache
 #firebase
-#/.firebase
+.firebase/
 #*.cache
 
 #project media files
