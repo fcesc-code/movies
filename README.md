@@ -74,11 +74,18 @@ Availability:
   | ---------- | -------- | ----- | --------- |
   | x.x% | x.x% | x.x% | x.x% |
 - [Sonarqube](https://www.sonarqube.org/): x bugs | x0 code smells | x vulnerabilities | x security hotspots | x% code duplication (excluding duplicated API file requested to separate deliverables) \
+<<<<<<< HEAD
 - [GitHub codeQL](https://github.com/github/codeql): 0 security alerts [![CodeQL](https://github.com/fcesc-code/movies/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fcesc-code/movies/actions/workflows/codeql-analysis.yml)
+=======
+>>>>>>> 0086c0c411e9a89df98d348ac91925f16e20753c
 - [Lighthouse](https://github.com/GoogleChrome/lighthouse) \
   | performance | accessibility | pwa | best practices | seo |
   | ----------- | ------------- | --- | -------------- | --- |
   | 100 | 100 | OK | 100 | 100 |
+<<<<<<< HEAD
+=======
+- [GitHub codeQL](https://github.com/github/codeql): 0 security alerts [![CodeQL](https://github.com/fcesc-code/movies/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fcesc-code/movies/actions/workflows/codeql-analysis.yml)
+>>>>>>> 0086c0c411e9a89df98d348ac91925f16e20753c
 
 ## Continuous integration
 
