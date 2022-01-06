@@ -1,10 +1,11 @@
 {
   "name": "movies",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
+    "build": "npm-run-all clean build:prod",
+    "build:prod": "ng build --outputHashing=all",
     "build:sourcemap": "ng build --source-map",
     "build:analyzeBundles": "node node_modules/.bin/source-map-explorer dist/movies/main*",
     "build:purgeCss": "node src/environments/postbuild.js",
@@ -22,7 +23,7 @@
     "ci": "npm-run-all lint test:ci clean",
     "clean": "rimraf dist/movies/",
     "lint": "ng lint",
-    "deploy": "firebase deploy --only hosting:movies"
+    "deploy": "firebase deploy"
   },
   "private": true,
   "dependencies": {
