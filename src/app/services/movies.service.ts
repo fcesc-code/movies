@@ -2,10 +2,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { API_GENERAL_KEYS } from '../../../KEYS/API_SECRET_KEYS';
+import { API_URL } from '../../../KEYS/API_SECRET_KEYS';
 import {
+  CastResponse,
   GenreListResponse,
-  Movie,
+  KeywordResults,
+  MovieResponse,
   ShortMovieListResponse,
 } from '../models/movie.interface';
 
@@ -26,7 +28,7 @@ export class MoviesService {
         .set('page', requestedPage),
     };
     return this.http.get<ShortMovieListResponse>(
-      `${API_GENERAL_KEYS.url}/movie/order/byRating/`,
+      `${API_URL}/movie/order/byRating/`,
       options
     );
   }
@@ -42,7 +44,7 @@ export class MoviesService {
         .set('page', requestedPage),
     };
     return this.http.get<ShortMovieListResponse>(
-      `${API_GENERAL_KEYS.url}/movie/order/byPopularity/`,
+      `${API_URL}/movie/order/byPopularity/`,
       options
     );
   }
@@ -59,7 +61,7 @@ export class MoviesService {
         .set('page', requestedPage),
     };
     return this.http.get<ShortMovieListResponse>(
-      `${API_GENERAL_KEYS.url}/movie/byYear/${year}/`,
+      `${API_URL}/movie/byYear/${year}/`,
       options
     );
   }
@@ -76,16 +78,24 @@ export class MoviesService {
         .set('page', requestedPage),
     };
     return this.http.get<ShortMovieListResponse>(
-      `${API_GENERAL_KEYS.url}/movie/byGen/${genre}/`,
+      `${API_URL}/movie/byGen/${genre}/`,
       options
     );
   }
 
-  getMovieById(id: string): Observable<Movie> {
-    return this.http.get<Movie>(`${API_GENERAL_KEYS.url}/movie/id/${id}/`);
+  getMovieById(id: string): Observable<MovieResponse> {
+    return this.http.get<MovieResponse>(`${API_URL}/movie/id/${id}/`);
+  }
+
+  getCastByMovieId(id: string): Observable<CastResponse> {
+    return this.http.get<CastResponse>(`${API_URL}/movie/id/${id}/cast`);
+  }
+
+  getKeywordsByMovieId(id: string): Observable<KeywordResults> {
+    return this.http.get<KeywordResults>(`${API_URL}/movie/id/${id}/keywords`);
   }
 
   getGenres(): Observable<GenreListResponse> {
-    return this.http.get<GenreListResponse>(`${API_GENERAL_KEYS.url}/genres/`);
+    return this.http.get<GenreListResponse>(`${API_URL}/genres/`);
   }
 }

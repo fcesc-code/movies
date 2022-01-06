@@ -4,10 +4,6 @@ module.exports = {
     preflight: false,
   },
   mode: "jit",
-  purge: {
-    enabled: true,
-    content: ["./src/**/*.{html,ts}"],
-  },
   theme: {
     extend: {
       colors: {
@@ -83,6 +79,11 @@ module.exports = {
         container_huge: "min(62vw,160rem)",
         "80%": "80%",
         card: "min(60vh,25rem)",
+        movie_img: "min(50rem, 30vw)",
+      },
+      maxWidth: {
+        movies: "min(90vw, 60rem)",
+        movie_img: "min(50rem, 100%, 80vw)",
       },
       height: {
         card: "min(calc(60vh + 5rem),30rem)",
@@ -92,6 +93,7 @@ module.exports = {
       },
       screens: {
         huge: "3859px",
+        tablet: "680px",
       },
       margin: {
         icons: "calc(3rem*.35)",

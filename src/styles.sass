@@ -1,37 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Open+Sans&family=Architects+Daughter&display=swap')
 
-@import "tailwindcss/base"
-@import "tailwindcss/components"
-@import "tailwindcss/utilities"
+@import ~animate.css/animate.min
+
+@import tailwindcss/base
+@import tailwindcss/components
+@import tailwindcss/utilities
 
 @layer base
   h1 
     @apply px-0 py-6 text-center text-h1 text-txt_title
   h2
-    @apply px-0 py-5 text-center font-fhand leading-14 font-normal text-h2
+    @apply px-0 py-5 text-center text-h2 text-txt_title font-fhand font-normal 
   h3
-    @apply px-0 py-4 text-center text-h3
+    @apply px-0 py-4 text-center text-h3 text-txt_title
   h4
-    @apply px-0 py-3 text-center text-h4
+    @apply px-0 py-3 text-center text-h4 text-txt_title
   h5, h6
-    @apply px-0 py-2 text-center font-fsans text-h5
+    @apply px-0 py-2 text-center text-h5 text-txt_title font-fsans 
   p, blockquote, ol, ul
-    @apply px-0 py-2 font-fsans text-general
+    @apply px-0 py-2 font-fsans text-general text-txt_main
   small
-    @apply font-fsans text-sm
+    @apply font-fsans text-sm text-txt_main
   p
-    @apply px-0 py-6 leading-10
+    @apply px-0 py-6 leading-10 text-general text-txt_main
     word-spacing: .04rem
   a, span, cite
     font-size: inherit
     font-family: inherit
+  a
+    @apply no-underline hover:underline hover:text-txt_contrast hover:decoration-txt_contrast focus:underline focus:text-txt_contrast focus:decoration-txt_contrast
   blockquote
-    @apply leading-9 italic
+    @apply leading-9 italic text-txt_main
   li
-    @apply px-0 py-1
-  p, h1, h2, h3, h4, h5, h6, blockquote, ul, ol, li, a, span
-    @apply text-txt_main text-general
+    @apply px-0 py-1 text-general text-txt_main
   ul, ol
     @apply list-none
   .smaller
@@ -42,10 +44,47 @@
     @apply text-txt_highlighted
   .txt--contrast
     @apply text-txt_contrast
-
+  .inherit-color
+    color: inherit
 
 @layer components
   .width-container
-    @apply w-container_s md:w-container_md 2xl:w-container_2xl huge:w-container_huge my-0 mx-auto bg-dark
+    @apply my-0 mx-auto bg-dark w-container_s md:w-container_md 2xl:w-container_2xl huge:w-container_huge
   .footer__socialIcon
     @apply p-0 my-0 mx-icons
+  .movies-list
+    @apply max-w-movies flex flex-col justify-start items-center
+
+.mat-form-field-label,
+.mat-form-field-autofill-control,
+.mat-input-element
+  color: #eee !important
+  caret-color: #ff5e5b !important
+  font-size: clamp(1rem, .95rem + 1vw, 1.1rem + .25rem) !important
+.mat-form-field-underline
+  background-color: #eee
+  caret-color: #ff5e5b !important
+  color: #ff5e5b
+.mat-form-field-ripple
+  background-color: #ff5e5b
+.mat-select-value,
+.mat-select-value-text
+  color: #eee !important
+  caret-color: #ff5e5b !important
+  font-size: clamp(1rem, .95rem + 1vw, 1.1rem + .25rem) !important
+.mat-option-text
+  color: #eee !important
+  caret-color: #ff5e5b !important
+  font-size: clamp(1rem, .95rem + 1vw, 1.1rem + .25rem) !important
+.mat-form-field
+  padding: 0 1rem 0 1rem
+  font-size: clamp(1rem, .95rem + 1vw, 1.1rem + .25rem) !important
+.mat-form-field-infix
+  padding: 1rem 0 0 0
+.mat-paginator-range-label,
+.mat-paginator-page-size,
+.mat-option-text,
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description
+  font-size: clamp(1rem, .95rem + 1vw, 1.1rem + .25rem) !important
+

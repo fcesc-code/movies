@@ -31,11 +31,14 @@ speed-measure-plugin*.json
 typings/
 *.tsbuildinfo
 
-# misc
+# environments
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+environment.*
+/environments
+/environment
 
 #log files
 npm-debug.log*
@@ -61,6 +64,9 @@ testem.log
 /.sass-cache
 #angular
 /.angular/cache
+#firebase
+#/.firebase
+#*.cache
 
 #project media files
 media/
