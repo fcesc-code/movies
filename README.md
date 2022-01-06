@@ -71,7 +71,7 @@ Availability:
   | ---------- | -------- | ----- | --------- |
   | x.x% | x.x% | x.x% | x.x% |
 - [Sonarqube](https://www.sonarqube.org/): x bugs | x0 code smells | x vulnerabilities | x security hotspots | x% code duplication (excluding duplicated API file requested to separate deliverables) \
-- [GitHub codeQL](https://github.com/github/codeql): 0 security alerts [![CodeQL](https://github.com/fcesc-code/blog-front/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/fcesc-code/blog-front/actions/workflows/codeql-analysis.yml)
+- [GitHub codeQL](https://github.com/github/codeql): 0 security alerts [![CodeQL](https://github.com/fcesc-code/movies/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fcesc-code/movies/actions/workflows/codeql-analysis.yml)
 
 ## Continuous delivery
 
