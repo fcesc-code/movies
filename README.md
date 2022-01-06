@@ -12,22 +12,25 @@ Subject: Advanced Frameworks. January 2022.
 ### Repositories and public website
 
 A Github repository can be found at [blog-front](https://github.com/fcesc-code/movies.git).
-The last release of the project can be accessed at [bitacoras](https://freemovies.netlify.app).
+The last release of the project can be accessed at [movies](https://movies-337310.firebaseapp.com/).
 
 ### Tech stack
 
 - [Angular](https://angular.io/) framework
 - [Angular CLI](https://angular.io/cli)
+- [Angular Universal](https://angular.io/guide/universal) to habilitate SSR
 - [RxJS](https://rxjs.dev/guide/overview) library for reactive programming with Angular
 - [Typescript](https://www.typescriptlang.org/)
 - [Jasmine](https://jasmine.github.io/) test framework
 - [Karma](https://karma-runner.github.io/) test runner
 - [Protractor](https://www.protractortest.org/#/) e2e testing in Angular
+- [PWA](https://web.dev/progressive-web-apps/)
 - [sass](https://sass-lang.com/)
 - [GitHub](https://github.com/)
 - [GitHub Actions](https://github.com/features/actions) for automated testing in continuous delivery
 - [GitHub native Dependabot](https://dependabot.com/) for security alerts
 - [GitHub codeQL](https://github.com/github/codeql) for code scanning alerts
+- [Husky](https://typicode.github.io/husky/#/) to create git hooks
 - [sonarqube](https://www.sonarqube.org/)
 - [Netlify](https://netlify.com)
 - [VSCode](https://code.visualstudio.com/)
@@ -53,47 +56,58 @@ The last release of the project can be accessed at [bitacoras](https://freemovie
 
 ## Releases
 
-Current deployment status (last released): [![Netlify Status](https://api.netlify.com/api/v1/badges/6fcadd22-c1b8-4300-824e-1ded244ba319/deploy-status)](https://app.netlify.com/sites/bitacoras/deploys).
+Current deployment status: working.
 
-| Version | Date            | Status       | Content         |
-| ------- | --------------- | ------------ | --------------- |
-| 0.0.1   | 03 January 2022 | Pre-released | Initial version |
+| Version | Date            | Status   | Content         |
+| ------- | --------------- | -------- | --------------- |
+| 0.0.1   | 06 January 2022 | Released | Initial version |
 
 Availability:
 :x: no longer deployed, files available for some time - ✔️ currently deployed and release available - :construction: is under development
 
 ## Quality gate
 
-- [HTML Validator](https://jigsaw.w3.org/css-validator/): x errors | x warnings \
-- [CSS Validator](https://jigsaw.w3.org/css-validator/validator): x errors | x warnings \
+- [HTML Validator](https://jigsaw.w3.org/css-validator/): 0 errors
+- [CSS Validator](https://jigsaw.w3.org/css-validator/validator): 0 errors
 - [Karma](https://karma-runner.github.io/): xx/xx tests passed (branch not merged) | Coverage: \
   | statements | branches | lines | functions |
   | ---------- | -------- | ----- | --------- |
   | x.x% | x.x% | x.x% | x.x% |
 - [Sonarqube](https://www.sonarqube.org/): x bugs | x0 code smells | x vulnerabilities | x security hotspots | x% code duplication (excluding duplicated API file requested to separate deliverables) \
+- [Lighthouse](https://github.com/GoogleChrome/lighthouse) \
+  | performance | accessibility | pwa | best practices | seo |
+  | ----------- | ------------- | --- | -------------- | --- |
+  | 100 | 100 | OK | 100 | 100 |
 - [GitHub codeQL](https://github.com/github/codeql): 0 security alerts [![CodeQL](https://github.com/fcesc-code/movies/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/fcesc-code/movies/actions/workflows/codeql-analysis.yml)
 
-## Continuous delivery
+## Continuous integration
 
-Automated testing in every pull request or merge to the main branch.
-Automated code scanning to measure code quality, pull requests cannot be merged if quality is not met.
-Automated security alerts for the repository.
+- Automated testing in every push to remote repository.
+- Automated code scanning to measure code quality, pull requests cannot be merged if quality is not met.
+- Automated security alerts for the repository.
+- Automated linting for every build
+- Automated testing for every build
+- Automated deploy for every build
 
 ## Scripts
 
-### Development server
+### Development servers
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-Alternatively, run `npm start`.
+- Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Run `npm run serve:pwa` for a progressive web app server. Navigate to `127.0.0.1:8080/`.
+- Run `npm run serve:ssr` for a server side rendering server. Navigate to `httplocalhost:4000/`.
 
 ### Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+- Run `ng build` to build the project. The build artifacts will be stored in the `dist/movies/` directory.
+- Run `npm run build:Ssr` to run a build for server side rendering. The build artifacts will be stored in the `dist/movies/` directory.
+- Run `npm run build:purgeCss` to run an experimental feature to downsize even more your production css files. However, there is a clash with dynamic angular material styles so it shold not be used for production and remains as an experimental feature.
+- Run `npm run build:sourcemap` to generate sorucemaps for build files analysis.
 
 ### Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-Option `npm run testAuto` is provided for automated GitHub Actions.
+- Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Run `npm run test:ci` for automated testing without opening a browser and ending with an exit code. This should be used mainly in other scripts for CI.
 
 ### Running end-to-end tests
 
