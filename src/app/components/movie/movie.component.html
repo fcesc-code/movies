@@ -1,6 +1,6 @@
 <section clasS="movie width-container flex flex-col justify-start items-center">
   <header class="w-full flex flex-row justify-between items-center">
-    <h1 clas="text-h1 text-txt_title" aria-role="heading">
+    <h1 clas="text-h1 text-txt_title" role="heading">
       {{ movie.title }}
     </h1>
     <a
@@ -93,7 +93,7 @@
         *ngIf="movie.imdb_id"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
-        aria-role="note"
+        role="note"
       >
         <mat-expansion-panel-header>
           <mat-panel-title aria-label="Cast of the movie">
