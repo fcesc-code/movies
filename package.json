@@ -48,7 +48,7 @@
     "@nguniversal/express-engine": "^13.0.1",
     "express": "^4.18.2",
     "firebase": "^9.21.0",
-    "ngx-build-plus": "^13.0.1",
+    "ngx-build-plus": "^15.0.0",
     "rxfire": "^6.0.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.3.0",
